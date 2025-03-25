@@ -1,97 +1,323 @@
-html,
+<style>
+
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #70c6db;
+    color: #5b5757;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
 }
 
-* {
-  box-sizing: border-box;
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-main {
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.menu-toggle {
+    display: none; /* Hide on larger screens */
 }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Space between items */
 }
 
-.title,
-.description {
-  text-align: center;
+.nav-list li {
+    font-size: 24px; /* Adjust font size */
+    font-weight: bold;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.nav-list a {
+    color: white;
+    text-decoration: none;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.nav-list a:hover {
+    text-decoration: underline; /* Add hover effect */
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+/* Responsive styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show on smaller screens */
+    }
+    .nav-list {
+        display: none; /* Hide the list by default */
+        flex-direction: column; /* Stack items vertically */
+    }
+    .nav-list.active {
+        display: flex; /* Show when active */
+    }
+}
+
+
+
+
+.card-container {
+    gap: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
 }
 
 .card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
+    margin: 10px 0;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    display: flex;
     flex-direction: column;
-  }
+    min-width: 10px;
+    align-items: center;
+    transition: transform 0.2s ease;
 }
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+
+    /* Container Design */
+    .container {
+        text-align: center;
+        background-color: #f56161;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin: 20px auto;
+        width: 80%;
+        max-width: 800px;
+        
+    }
+
+    .container:hover {
+        transform: translateY(-10px);
+        box-shadow: 1cap 6px 12px rgb(24, 1, 1, 0.3);
+    }
+
+    .heading {
+        font-size: 2.5rem;
+        color: #080707;
+    }
+
+    .subheading {
+        font-size: 1.5rem;
+        color: #4e3b3b;
+        margin-top: 10px;
+    }
+
+/* about-me Section Design */
+.about-me {
+    background-color: #f4c325; /* Light green background */
+    padding: 40px 20px;
+    border-left: 5px solid #0c0d02; /* Green border to the left */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    width: 80%;
+    max-width: 800px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.about-me h1 {
+    font-size: 2.8rem; /* Larger font size for the heading */
+    margin-bottom: 20px; /* Increased margin for better spacing below the heading */
+}
+
+.title {
+    font-size: 2rem; /* Larger and more prominent title */
+    margin-bottom: 10px; /* Added margin for spacing below the title */
+}
+
+/* Increased font size for paragraph text to enhance readability */
+.about-me p {
+    font-size: 1.2rem; /* Larger font size for the paragraph text */
+    line-height: 1.8; /* Adjusted line height for better text spacing */
+}
+
+.overview h3 {
+    font-size: 1.8rem;
+    color: #2e7d32; /* Dark green for heading */
+    margin-bottom: 10px;
+}
+
+.overview p {
+    font-size: 1rem;
+    color: #555; /* Neutral color for paragraph text */
+    line-height: 1.6;
+}
+
+/* Hover Effect */
+.about-me:hover {
+    background-color: #f5e056; /* Slightly darker green on hover */
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.profile-picture {
+    width: 300px; /* Increased image size */
+    height: 300px;
+    margin-bottom: 20px; /* Added margin for spacing between image and text */
+}
+
+
+/* Overview Section Design */
+.overview {
+    background-color: #e8f5e9; /* Light green background */
+    padding: 20px;
+    border-left: 5px solid #4caf50; /* Green border to the left */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.overview h3 {
+    font-size: 1.8rem;
+    color: #2e7d32; /* Dark green for heading */
+    margin-bottom: 10px;
+}
+
+.overview p {
+    font-size: 1rem;
+    color: #555; /* Neutral color for paragraph text */
+    line-height: 1.6;
+}
+
+/* Hover Effect */
+.overview:hover {
+    background-color: #c8e6c9; /* Slightly darker green on hover */
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+section h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+section p {
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Highlights Section */
+.highlights {
+    background-color: #fce4ec; /* Light pink */
+    border-left: 5px solid #ec407a; /* Deep pink */
+}
+
+/* Curriculum Section */
+.curriculum {
+    background-color: #e3f2fd; /* Light blue */
+    border-left: 5px solid #2196f3; /* Blue */
+}
+
+.curriculum h4 {
+    font-size: 1.5rem;
+    color: #1976d2;
+    margin-top: 15px;
+}
+
+/* Benefits Section */
+.benefits {
+    background-color: #ede7f6; /* Light purple */
+    border-left: 5px solid #673ab7; /* Purple */
+}
+
+/* Target Audience Section */
+.target-audience {
+    background-color: #fff9c4; /* Light yellow */
+    border-left: 5px solid #fbc02d; /* Yellow */
+}
+
+/* Enrollment Section */
+.enrollment {
+    background-color: #e0f7fa; /* Light teal */
+    border-left: 5px solid #00acc1; /* Teal */
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    background-color: #e8f5e9; /* Light green */
+    border-left: 5px solid #4caf50; /* Green */
+}
+
+/* Footer Call-to-Action */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4caf50;
+    color: white;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+ </style>
