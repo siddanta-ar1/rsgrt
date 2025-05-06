@@ -1,4 +1,4 @@
-JavaScript (script.js):
+JavaScript (script.js);
 
 const mobileMenu = document.getElementById("mobile-menu");
 const navList = document.querySelector(".nav-list");
